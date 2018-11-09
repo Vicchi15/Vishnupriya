@@ -44,7 +44,7 @@ text for inspiration.
   for i in year,info:
     sumup.append(i)
   
-  return(sumup)
+  print(sumup)
  def main():
   # This command-line parsing code is provided.
   # Make a list of command line arguments, omitting the [0] element
@@ -58,6 +58,8 @@ text for inspiration.
   if args[0] == '--summaryfile':
     summary = True
     del args[0]
+  for fn in args:
+    extract_names(fn)
    # +++your code here+++
   # For each filename, get the names, then either print the text output
   # or write it to a summary file
