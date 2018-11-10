@@ -34,7 +34,8 @@ def copy_to(paths,dir):
  
 def zip_to(paths,zip_path):
   zip=zipfile.ZipFile(zip_path,"a")
-  print("Command I'm going to do:" + zip)
+  zipcmd='zipfile.ZipFile(zip_path,"a")'
+  print("Command I'm going to do:" + zipcmd)
   for i in paths:
     zip.write(i)
   zip.close()
