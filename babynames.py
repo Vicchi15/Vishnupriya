@@ -2,7 +2,7 @@
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
- import sys
+import sys
 import re
  """Baby Names exercise
  Define the extract_names() function below and change main()
