@@ -22,7 +22,7 @@ def get_special_paths(dir):
     special=re.search(r'__(\w+)__',filename)
     special=special.group()
     if(special):
-      list.append(os.path.abspath(os.path.join(dir,filename))
+      list.append(os.path.abspath(os.path.join(dir,filename)))
   return list
 
 def copy_to(paths,dir):
@@ -30,14 +30,14 @@ def copy_to(paths,dir):
   if not os.paths.isdir(target):
     os.mkdir(target)
   for i in paths:
-    shutil.copy(i,os.path.join(target,os.path.basename(i))
+    shutil.copy(i,os.path.join(target,os.path.basename(i)))
  
 def zip_to(paths,zip_path):
   zip=zipfile.ZipFile(zip_path,"a")
   zipcmd='zipfile.ZipFile(zip_path,"a")'
   print("Command I'm going to do:" + zipcmd)
   for i in paths:
-    zip.write(i)
+    zip.write(i,compress_type=zipfile.ZIP_DEFLATED)
   zip.close()
     
   
@@ -71,12 +71,13 @@ def main():
 
   # +++your code here+++
   # Call your functions
+  lists=[]
   for d in args:
-    list=get_special_paths(d)
+    lists.extend(get_special_paths(d))
   if todir:
-    copy_to(list,todir)
+    copy_to(lists,todir)
   if tozip:
-    zip_to(list,tozip)
+    zip_to(lists,tozip)
   
 if __name__ == "__main__":
   main()
