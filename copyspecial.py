@@ -33,12 +33,12 @@ def copy_to(paths,dir):
     shutil.copy(i,os.path.join(target,os.path.basename(i)))
  
 def zip_to(paths,zip_path):
-  zip=zipfile.ZipFile(zip_path,"a")
+  zip1=zipfile.ZipFile(zip_path,"a")
   zipcmd='zipfile.ZipFile(zip_path,"a")'
   print("Command I'm going to do:" + zipcmd)
   for i in paths:
-    zip.write(i,compress_type=zipfile.ZIP_DEFLATED)
-  zip.close()
+    zip1.write(i,compress_type=zipfile.ZIP_DEFLATED)
+  zip1.close()
     
   
 def main():
