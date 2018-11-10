@@ -35,16 +35,22 @@ text for inspiration.
   f=open('filename','r')
   y=re.search(r'Popularity in \d+',f.read())
   y=y.group()
-  year.append(y)
-  info=[]
-  data=re.findall(r'<td>(\d+)</td><td>(\w+)</td><td>(\w+)</td>,f.read())
+  p=re.search(r'(\d+)',y)
+  p=p.group()
+  year.append(p)
+  data=re.findall(r'<td>(\d+)</td><td>(\w+)</td><td>(\w+)</td>',str)
+  count=0
   for i in data:
-    info.append(i)
-  sumup=[]
-  for i in year,info:
-    sumup.append(i)
+    count=count+1
+  male1={}
+  for i in range(count):
+    male1[data[i][1]]=data[i][0]
+    male1[data[i][2]]=data[i][0]
+  male1=sorted(male1.items())
+  for i in male1:
+    year.append(i)
+  print(year)
   
-  print(sumup)
  def main():
   # This command-line parsing code is provided.
   # Make a list of command line arguments, omitting the [0] element
